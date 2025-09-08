@@ -1,35 +1,60 @@
 <script setup>
-import SliderComponent from '@/view/components/OfferSliderComponent.vue';
+// import SliderComponent from '@/view/components/OfferSliderComponent.vue';
+
+const about_description =
+ [
+  "No more spreadsheets.",
+  "No more confusing websites.",
+  "We'll handle the math."
+ ]
+
 </script>
 
 <template>
-  <div class="container h-90 align-content-center">
-   <h1 class="text-center fw-bold customize-title animate-title">
-      <span>G</span>
-      <span>r</span>
-      <span>a</span>
-      <span>d</span>
-      <span>e</span>
-      <span>&nbsp;</span>
-      <span>&nbsp;</span>
-      <span>T</span>
-      <span>r</span>
-      <span>a</span>
-      <span>c</span>
-      <span>k</span>
-      <span>e</span>
-      <span>r</span>
-      <span>&nbsp;</span>
-      <!-- <span>A</span>
-      <span>p</span>
-      <span>p</span> -->
-    </h1>
-    <p class="text-center fst-italic">Track your grades, manage assignments, and monitor progress</p>
-  </div>
   <div>
-    <p class="text-center fs-3">This Website Application Offer for those Student's want track there grades </p>
-    <SliderComponent class="py-5" />
+    <div class="container h-90 align-content-center">
+      <h1 class="text-center fw-bold customize-title animate-title">
+          <span>G</span>
+          <span>r</span>
+          <span>a</span>
+          <span>d</span>
+          <span>e</span>
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+          <span>T</span>
+          <span>r</span>
+          <span>a</span>
+          <span>c</span>
+          <span>k</span>
+          <span>e</span>
+          <span>r</span>
+          <span>&nbsp;</span>
+          <!-- <span>A</span>
+          <span>p</span>
+          <span>p</span> -->
+        </h1>
+      <p class="text-center fst-italic">Track your grades, manage assignments, and monitor progress</p>
+    </div>
   </div>
+
+  <div>
+      <div id="about">
+         <h2 class="text-center"> Grade Tracker Design to work for <span class="text-decoration-underline">you</span></h2>
+          <div class="text-center">
+            <ul class="py-5">
+              <li v-for="(item, index) in about_description" :key="index" class="text-decoration-none list-unstyled">
+                <h5 class="fw-light">{{ item }}</h5>
+              </li>
+             </ul>
+          </div>
+
+        </div>
+  </div>
+
+
+  <!-- <div>
+    <SliderComponent class="py-5 container" />
+  </div> -->
 
 </template>
 

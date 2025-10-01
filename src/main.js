@@ -8,6 +8,8 @@ import 'remixicon/fonts/remixicon.css'
 
 import 'swiper/css'
 import 'swiper/css/pagination';
+import './styles/app.css'
+
 
 
 const app = createApp(App)

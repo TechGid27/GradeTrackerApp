@@ -1,18 +1,17 @@
 <script setup>
 
-// import { useRoute} from "vue-router";
+
+import { useRoute} from "vue-router";
 import { useSubjects } from "../../composables/subjects.js";
 import { useAssessment } from "../../composables/assessment.js";
 import AddUpdateComponent from "./AddUpdateComponent.vue";
 import { ref } from "vue";
 
-// const route = useRoute();
+const route = useRoute();
 const token = localStorage.getItem("token");
 
 const { addSubject } = useSubjects(token);
 const { addAssessment  } = useAssessment(token);
-
-// const emit = defineEmits(["link-click"]);
 
 const subjectModal = ref(null);
 
@@ -22,34 +21,11 @@ const handleAdd = async (form) => {
 
 };
 
-
-
 </script>
-
 <template>
-  <div class="container">
-    <ul class="row row-cols-1 row-cols-md-1 row-cols-lg-1 list-unstyled text-center align-items-center">
-      <li class="nav-item py-1">
-        <router-link  @click="$emit('link-click')"  class="nav-link customize-border py-1 link"  to="subjects">
-          <i class="ri-settings-5-line"></i> Manage Subjects
-        </router-link>
-      </li>
-      <li class="nav-item py-1">
-        <router-link  @click="$emit('link-click')"  class="nav-link customize-border py-1 link" to="analytics" >
-          <i class="ri-line-chart-line"></i> View Analytics
-        </router-link>
-      </li>
-      <li class="nav-item py-1">
-        <router-link  @click="$emit('link-click')"  class="nav-link customize-border py-1 link" to="grade" >
-          <i class="ri-bar-chart-box-line"></i> View Grades
-        </router-link>
-      </li>
-      <li class="nav-item py-1">
-        <router-link  @click="$emit('link-click')"  class="nav-link customize-border py-1 link" to="task" >
-          <i class="ri-calendar-todo-line"></i> Manage Task
-        </router-link>
-      </li>
-      <!-- <li v-if="route.name === 'Grades'" class="nav-item py-1">
+<div class="container justify-items-end">
+  <ul class="list-unstyled text-center w-customized">
+      <li v-if="route.name === 'Grades'" class="nav-item py-1">
         <a  class="nav-link customize-border py-1 link" @click="subjectModal.openForAdd('assessment')">+ Assessments</a>
       </li>
       <li v-else-if="route.name === 'ManageTask'" class="nav-item py-1">
@@ -60,20 +36,19 @@ const handleAdd = async (form) => {
       </li>
       <li v-else class="nav-item py-1">
         <router-link  @click="$emit('link-click')"  class="nav-link customize-border py-1 link" to="subjects">+ Add Subject</router-link>
-      </li> -->
-    </ul>
-  </div>
+      </li>
+  </ul>
+</div>
 
-  <!-- add subject modal -->
   <AddUpdateComponent
     ref="subjectModal" @add="handleAdd"
   />
-
 </template>
 
-
 <style scoped>
-
+.w-customized{
+    width: 273px
+}
 .customize-border{
     border: solid 1px #d5d5d5f5;
     border-radius: 6px;
